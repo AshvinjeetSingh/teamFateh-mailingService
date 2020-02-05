@@ -13,7 +13,7 @@ def index():
         try:
             msg=f"Subject:{request.form.get('category')}"+"\n\nFrom: "+request.form.get("name")+"\nemail: "+request.form.get("email")+"\n\nmessage: "+request.form.get("message")
             fromaddr="updates.teamfateh@gmail.com"
-            password=os.getenv(password)
+            password=os.getenv("password")
             server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
             server.login(fromaddr, password)
             server.sendmail(fromaddr, ["team.fateh@thapar.edu","aryankhera11@gmail.com"], msg)
