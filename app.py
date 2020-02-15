@@ -11,6 +11,9 @@ CORS(app)
 def index():
     if request.method=="POST":
         try:
+            for attr in request.form:
+                if not request.form[attr]:
+                    return(jsonify(sent=attr+" required"),200)
             msg=f"Subject:{request.form.get('category')}"+"\n\nFrom: "+request.form.get("name")+"\nemail: "+request.form.get("email")+"\n\nmessage: "+request.form.get("message")
             fromaddr="updates.teamfateh@gmail.com"
             password=os.getenv("password")
