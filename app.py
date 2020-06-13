@@ -14,12 +14,12 @@ def index():
             for attr in request.form:
                 if not request.form[attr]:
                     return(jsonify(sent=attr+" required"),200)
-            msg=f"Subject:{request.form.get('category')}"+"\n\nFrom: "+request.form.get("name")+"\nemail: "+request.form.get("email")+"\n\nmessage: "+request.form.get("message")
+            msg=f"Subject:{request.form.get('subject')}"+"\n\nFrom: "+request.form.get("name")+"\nemail: "+request.form.get("email")+"\n\nmessage: "+request.form.get("message")
             fromaddr="updates.teamfateh@gmail.com"
             password=os.getenv("password")
             server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
             server.login(fromaddr, password)
-            server.sendmail(fromaddr, ["team.fateh@thapar.edu","aryankhera11@gmail.com"], msg)
+            server.sendmail(fromaddr, ["kidsworldschool305@gmail.com"], msg)
             server.quit()
             return(jsonify(sent="success"),200)
         except:
