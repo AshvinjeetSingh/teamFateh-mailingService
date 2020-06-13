@@ -15,7 +15,7 @@ def index():
                 if not request.form[attr]:
                     return(jsonify(sent=attr+" required"),200)
             msg=f"Subject:{request.form.get('subject')}"+"\n\nFrom: "+request.form.get("name")+"\nemail: "+request.form.get("email")+"\n\nmessage: "+request.form.get("message")
-            fromaddr="updates.teamfateh@gmail.com"
+            fromaddr="update.kidsworldschool@gmail.com"
             password=os.getenv("password")
             server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
             server.login(fromaddr, password)
