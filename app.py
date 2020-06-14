@@ -21,8 +21,8 @@ def index():
             server.login(fromaddr, password)
             server.sendmail(fromaddr, ["kidsworldschool305@gmail.com"], msg)
             server.quit()
-#             return(jsonify(sent="success"),200)
-              return alert("hello there")
+            return(jsonify(sent="success"),200)
+#               return alert("hello there")
         except:
             return(jsonify(sent="failed"),200)
     else:
